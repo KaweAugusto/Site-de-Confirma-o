@@ -2,3 +2,6 @@ PassengerEnabled on
 PassengerAppRoot /home/u660406335/public_html
 PassengerBaseURI /
 PassengerPython /usr/bin/python3
+
+# Desativa a exigência de ficheiros index estáticos para o Apache deixar o Passenger assumir a raiz
+DirectoryIndex disabled
