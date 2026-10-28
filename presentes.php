@@ -191,7 +191,7 @@ $cidade = "Rio de Janeiro";
         <div id="aviso" class="mensagem-copiado">Chave copiada com sucesso!</div>
 
         <div>
-            <a href="index.php" class="btn-voltar">Voltar ao Início</a>
+            <a href="index.php" class="btn-voltar">Confirmarção de Presença</a>
         </div>
 
     </div>
