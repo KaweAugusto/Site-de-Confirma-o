@@ -105,6 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             src: url("static/CormorantSC-Regular.ttf") format('truetype');
         }
 
+        /* Fundo padrão para Computador */
         body {
             font-family: 'Georgia', serif;
             text-align: center;
@@ -144,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: normal;
             margin-bottom: 0px;
             margin-top: 5px;
-            white-space: nowrap; /* Impede que o nome quebre de linha no PC */
+            white-space: nowrap; 
         }
 
         .info {
@@ -209,10 +210,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .btn-voltar:hover { background-color: #4a5d23; color: white; }
 
-        /* Ajustes exatos para telemóveis */
+        /* Fundo e ajustes exclusivos para Telemóveis */
         @media (max-width: 600px) {
+            body {
+                background-image: url("static/fundo-celular.jpg"); /* Nova imagem só para telemóvel */
+                background-size: cover;
+                background-position: center center;
+            }
             h1 {
-                font-size: 1.9em; /* Reduz na medida certa para garantir uma linha só no telemóvel */
+                font-size: 1.9em; /* Mantém os nomes em uma linha só */
             }
             .container {
                 padding: 25px 15px;
