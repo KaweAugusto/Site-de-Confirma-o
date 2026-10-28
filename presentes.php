@@ -71,9 +71,13 @@ $cidade = "Rio de Janeiro";
         .info {
             font-family: 'Cormorant SC', serif;
             margin-bottom: 20px;
-            font-size: 1.15em;
+            font-size: 1.1em;
             color: #555;
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+        .info p {
+            margin: 10px 0;
         }
 
         .qrcode-box {
@@ -154,7 +158,7 @@ $cidade = "Rio de Janeiro";
                 max-width: 90%;
             }
             .info {
-                font-size: 1em;
+                font-size: 0.95em;
             }
             .qrcode-box img {
                 width: 170px;
@@ -166,19 +170,16 @@ $cidade = "Rio de Janeiro";
 <body>
     <div class="container">
 
-        <h1>Lista de Presentes</h1>
+        <h1>Presente</h1>
 
         <div class="info">
-            <p>A A sua presença já é o nosso maior presente! ❤️
-
-Mas, se ainda quiser nos presentear, ficaremos muito felizes em receber uma contribuição de qualquer valor, aquele que estiver no seu coração, para nos ajudar a realizar um sonho: viver a experiência da nossa primeira viagem de avião juntos! ✈️💕
-
-Desde já, agradecemos de coração por fazer parte desse momento tão especial e por nos ajudar a transformar esse sonho em realidade!:</p>
+            <p>A sua presença já é o nosso maior presente! ❤️</p>
+            <p>Mas, se ainda quiser nos presentear, ficaremos muito felizes em receber uma contribuição de qualquer valor, aquele que estiver no seu coração, para nos ajudar a realizar um sonho: viver a experiência da nossa primeira viagem de avião juntos! ✈️💕</p>
+            <p>Desde já, agradecemos de coração por fazer parte desse momento tão especial e por nos ajudar a transformar esse sonho em realidade!</p>
         </div>
 
         <!-- QR Code gerado automaticamente pelo link da chave ou API do Pix -->
         <div class="qrcode-box">
-            <!-- Pode substituir o src abaixo pela imagem do QR Code que gerou no site de Pix -->
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=<?php echo urlencode($chave_pix); ?>" alt="QR Code Pix">
         </div>
 
