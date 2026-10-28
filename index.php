@@ -210,19 +210,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .btn-voltar:hover { background-color: #4a5d23; color: white; }
 
-        /* Fundo e ajustes exclusivos para Telemóveis */
+        /* Classe para esconder elementos no telemóvel */
+        .desktop-only {
+            display: block;
+        }
+
+        /* Ajustes exclusivos para Telemóveis */
         @media (max-width: 600px) {
             body {
-                background-image: url("static/fundo-celular.jpg"); /* Nova imagem só para telemóvel */
+                background-image: url("static/fundo-celular.jpg");
                 background-size: cover;
                 background-position: center center;
             }
-            h1 {
-                font-size: 1.9em; /* Mantém os nomes em uma linha só */
+            .desktop-only {
+                display: none; /* Oculta o título Giovanna & Kawe no telemóvel */
             }
             .container {
-                padding: 25px 15px;
-                max-width: 92%;
+                padding: 18px 12px; /* Caixa bem mais compacta */
+                max-width: 90%;
+            }
+            .info {
+                font-size: 0.95em; /* Textos menores nas informações */
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+            label {
+                font-size: 1em; /* Texto do campo de nome menor */
+                margin-bottom: 8px;
+            }
+            input[type="text"] {
+                padding: 9px;
+                margin-bottom: 10px;
+            }
+            button {
+                padding: 10px;
             }
         }
     </style>
@@ -230,7 +251,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
 
-        <h1>Giovanna & Kawe</h1>
+        <!-- Título visível apenas no Computador -->
+        <h1 class="desktop-only">Giovanna & Kawe</h1>
 
         <div class="info">
             <p><strong>Data:</strong> 15 de Maio de 2027</p>
