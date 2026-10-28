@@ -1,9 +1,0 @@
-# Configuração do Passenger para Flask na Hostinger
-PassengerAppRoot /home/u660406335/public_html
-PassengerBaseURI /
-PassengerPython /usr/bin/python3
-
-# Garante que o Passenger gerencia o fluxo principal
-<IfModule mod_passenger.c>
-    PassengerEnabled on
-</IfModule>
