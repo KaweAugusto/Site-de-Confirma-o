@@ -1,9 +1,20 @@
+<?php
+$arquivo_json = 'convidados.json';
+$convidados = file_exists($arquivo_json) ? json_decode(file_get_contents($arquivo_json), true) : [];
+
+$total = count($convidados);
+$confirmados = 0;
+foreach ($convidados as $c) {
+    if ($c['confirmado']) $confirmados++;
+}
+$pendentes = $total - $confirmados;
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Administração</title>
+    <title>Painel de Administração - Noivado</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -72,15 +83,15 @@
         <div class="dashboard">
             <div class="card total">
                 <h3>Total</h3>
-                <p>{{ total }}</p>
+                <p><?php echo $total; ?></p>
             </div>
             <div class="card confirmados">
                 <h3>Confirmados</h3>
-                <p>{{ confirmados }}</p>
+                <p><?php echo $confirmados; ?></p>
             </div>
             <div class="card pendentes">
                 <h3>Faltam</h3>
-                <p>{{ pendentes }}</p>
+                <p><?php echo $pendentes; ?></p>
             </div>
         </div>
 
@@ -92,24 +103,24 @@
                 </tr>
             </thead>
             <tbody>
-                {% for convidado in lista_convidados %}
+                <?php foreach ($convidados as $c): ?>
                 <tr>
-                    <td>{{ convidado.nome_original }}</td>
+                    <td><?php echo htmlspecialchars($c['nome_original']); ?></td>
                     <td>
-                        {% if convidado.confirmado %}
-                            <span class="ok">✔️ OK</span>
-                        {% else %}
+                        <?php if ($c['confirmado']): ?>
+                            <span class="ok">✔️ Confirmado</span>
+                        <?php else: ?>
                             <span class="pendente">⏳ Pendente</span>
-                        {% endif %}
+                        <?php endif; ?>
                     </td>
                 </tr>
-                {% endfor %}
+                <?php endforeach; ?>
             </tbody>
         </table>
 
         <div class="botoes">
-            <a href="/" class="btn btn-voltar">Voltar ao Site</a>
-            <a href="/reset" class="btn btn-reset" onclick="return confirm('Tem certeza que deseja resetar TODAS as confirmações de volta para Pendente?');">Resetar Tudo</a>
+            <a href="index.php" class="btn btn-voltar">Voltar ao Site</a>
+            <a href="reset.php" class="btn btn-reset" onclick="return confirm('Tem certeza que deseja resetar TODAS as confirmações de volta para Pendente?');">Zerar Tudo</a>
         </div>
     </div>
 </body>
