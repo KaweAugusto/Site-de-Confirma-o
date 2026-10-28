@@ -1,3 +1,93 @@
+<?php
+$arquivo_json = 'convidados.json';
+
+// Carrega os convidados
+function obter_convidados($arquivo) {
+    if (!file_exists($arquivo)) {
+        $lista_inicial = [
+            "chely" => ["nome_original" => "Chely", "confirmado" => false],
+            "valentina" => ["nome_original" => "Valentina", "confirmado" => false],
+            "cleonice" => ["nome_original" => "Cleonice", "confirmado" => false],
+            "alexsandra" => ["nome_original" => "Alexsandra", "confirmado" => false],
+            "leonan" => ["nome_original" => "Leonan", "confirmado" => false],
+            "vera" => ["nome_original" => "Vera", "confirmado" => false],
+            "isabela" => ["nome_original" => "Isabela", "confirmado" => false],
+            "carlos jr" => ["nome_original" => "Carlos Jr", "confirmado" => false],
+            "giulliano" => ["nome_original" => "Giulliano", "confirmado" => false],
+            "elizabeth" => ["nome_original" => "Elizabeth", "confirmado" => false],
+            "carlos" => ["nome_original" => "Carlos", "confirmado" => false],
+            "leonardo" => ["nome_original" => "Leonardo", "confirmado" => false],
+            "erica" => ["nome_original" => "Erica", "confirmado" => false],
+            "pedro" => ["nome_original" => "Pedro", "confirmado" => false],
+            "kelly" => ["nome_original" => "Kelly", "confirmado" => false],
+            "thiago" => ["nome_original" => "Thiago", "confirmado" => false],
+            "laura" => ["nome_original" => "Laura", "confirmado" => false],
+            "vivian" => ["nome_original" => "Vivian", "confirmado" => false],
+            "diogo" => ["nome_original" => "Diogo", "confirmado" => false],
+            "humberto" => ["nome_original" => "Humberto", "confirmado" => false],
+            "tata" => ["nome_original" => "Tata", "confirmado" => false],
+            "anderson" => ["nome_original" => "Anderson", "confirmado" => false],
+            "eloana" => ["nome_original" => "Eloana", "confirmado" => false],
+            "joão pedro" => ["nome_original" => "João Pedro", "confirmado" => false],
+            "luisa" => ["nome_original" => "Luisa", "confirmado" => false],
+            "bruno" => ["nome_original" => "Bruno", "confirmado" => false],
+            "eliane" => ["nome_original" => "Eliane", "confirmado" => false],
+            "ronaldo" => ["nome_original" => "Ronaldo", "confirmado" => false],
+            "maria eduarda" => ["nome_original" => "Maria Eduarda", "confirmado" => false],
+            "ana carla" => ["nome_original" => "Ana Carla", "confirmado" => false],
+            "edson" => ["nome_original" => "Edson", "confirmado" => false],
+            "julia" => ["nome_original" => "Julia", "confirmado" => false],
+            "danyella" => ["nome_original" => "Danyella", "confirmado" => false],
+            "anabella" => ["nome_original" => "Anabella", "confirmado" => false],
+            "giulia" => ["nome_original" => "Giulia", "confirmado" => false],
+            "maria clara" => ["nome_original" => "Maria Clara", "confirmado" => false],
+            "matheus" => ["nome_original" => "Matheus", "confirmado" => false],
+            "ana julia" => ["nome_original" => "Ana Julia", "confirmado" => false],
+            "juliana" => ["nome_original" => "Juliana", "confirmado" => false],
+            "frederico" => ["nome_original" => "Frederico", "confirmado" => false],
+            "juliane" => ["nome_original" => "Juliane", "confirmado" => false],
+            "eduardo" => ["nome_original" => "Eduardo", "confirmado" => false],
+            "gustavo" => ["nome_original" => "Gustavo", "confirmado" => false],
+            "beatriz" => ["nome_original" => "Beatriz", "confirmado" => false],
+            "maia" => ["nome_original" => "Maia", "confirmado" => false],
+            "maria" => ["nome_original" => "Maria", "confirmado" => false],
+            "lucas" => ["nome_original" => "Lucas", "confirmado" => false],
+            "luana" => ["nome_original" => "Luana", "confirmado" => false],
+            "karina" => ["nome_original" => "Karina", "confirmado" => false],
+            "danielle" => ["nome_original" => "Danielle", "confirmado" => false],
+            "kauã" => ["nome_original" => "Kauã", "confirmado" => false],
+            "kawe" => ["nome_original" => "Kawe", "confirmado" => false],
+            "giovanna" => ["nome_original" => "Giovanna", "confirmado" => false]
+        ];
+        file_put_contents($arquivo, json_encode($lista_inicial, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+        return $lista_inicial;
+    }
+    return json_decode(file_get_contents($arquivo), true);
+}
+
+$convidados = obter_convidados($arquivo_json);
+$mensagem = "";
+$status = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nome_digitado = mb_strtolower(trim($_POST["nome"] ?? ''));
+    
+    if (isset($convidados[$nome_digitado])) {
+        if ($convidados[$nome_digitado]["confirmado"]) {
+            $mensagem = "Você já confirmou sua presença.";
+            $status = "aviso";
+        } else {
+            $convidados[$nome_digitado]["confirmado"] = true;
+            file_put_contents($arquivo_json, json_encode($convidados, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT));
+            $mensagem = "Sua Presença Está Confirmada! Esperamos por você";
+            $status = "sucesso";
+        }
+    } else {
+        $mensagem = "Convidado Não Encontrado.<br>Verifique a Escrita Conforme o Convite.";
+        $status = "erro";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,19 +98,19 @@
         /* Importando a fonte personalizada */
         @font-face {
             font-family: 'Blosta Script';
-            src: url("{{ url_for('static', filename='Blosta-Script.otf') }}") format('opentype');
+            src: url("static/Blosta-Script.otf") format('opentype');
         }
 
         /* Importando a fonte das Informações */
         @font-face {
             font-family: 'Cormorant SC';
-            src: url("{{ url_for('static', filename='CormorantSC-Regular.ttf') }}") format('truetype');
+            src: url("static/CormorantSC-Regular.ttf") format('truetype');
         }
 
         body {
             font-family: 'Georgia', serif;
             text-align: center;
-            background-image: url("{{ url_for('static', filename='fundo-flores.png.jpeg') }}");
+            background-image: url("static/fundo-flores.png.jpeg");
             background-size: cover;
             background-position: bottom center;
             background-repeat: no-repeat;
@@ -129,28 +219,28 @@
             <p><strong>Data:</strong> 15 de Maio de 2027</p>
             <p><strong>Hora:</strong> 15:30</p>
             <p><strong>Local:</strong> Rua Edgard Werneck, 1115 - Pechincha</p>
-            <p><strong>Confirme até o dia 08 de Maio de 2027</p>
+            <p><strong>Confirme até o dia 08 de Maio de 2027</strong></p>
         </div>
 
-        {% if status == 'sucesso' %}
-            <p class="sucesso">{{ mensagem | safe }}</p>
-            <a href="/" class="btn-voltar">Confirmar Outro Convidado</a>
+        <?php if ($status == 'sucesso'): ?>
+            <p class="sucesso"><?php echo $mensagem; ?></p>
+            <a href="index.php" class="btn-voltar">Confirmar Outro Convidado</a>
 
-        {% elif status == 'aviso' %}
-            <p class="aviso">{{ mensagem | safe }}</p>
-            <a href="/" class="btn-voltar">Voltar</a>
+        <?php elseif ($status == 'aviso'): ?>
+            <p class="aviso"><?php echo $mensagem; ?></p>
+            <a href="index.php" class="btn-voltar">Voltar</a>
 
-        {% else %}
-            {% if status == 'erro' %}
-                <p class="erro">{{ mensagem | safe }}</p>
-            {% endif %}
+        <?php else: ?>
+            <?php if ($status == 'erro'): ?>
+                <p class="erro"><?php echo $mensagem; ?></p>
+            <?php endif; ?>
 
             <form method="POST">
                 <label for="nome">Confirme Seu Nome De Acordo Com o Convite!</label>
                 <input type="text" id="nome" name="nome" placeholder="" required autocomplete="off">
                 <button type="submit">Confirmar Presença</button>
             </form>
-        {% endif %}
+        <?php endif; ?>
 
     </div>
 </body>
