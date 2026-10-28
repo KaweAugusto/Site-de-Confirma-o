@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-family: 'Georgia', serif;
             text-align: center;
             background-image: url("static/fundo-flores.png.jpeg");
-            background-size: 100% auto; /* Afasta o zoom e adapta a largura exata da imagem */
+            background-size: cover;
             background-position: center bottom;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: normal;
             margin-bottom: 0px;
             margin-top: 5px;
-            white-space: nowrap; 
+            white-space: nowrap; /* Impede que o nome quebre de linha no PC */
         }
 
         .info {
@@ -211,11 +211,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         /* Ajustes exatos para telemóveis */
         @media (max-width: 600px) {
-            body {
-                background-size: 130% auto; /* Menos zoom no telemóvel para mostrar mais flores */
-            }
             h1 {
-                font-size: 1.9em; 
+                font-size: 1.9em; /* Reduz na medida certa para garantir uma linha só no telemóvel */
             }
             .container {
                 padding: 25px 15px;
