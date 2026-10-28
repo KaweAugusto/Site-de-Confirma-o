@@ -210,11 +210,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .btn-voltar:hover { background-color: #4a5d23; color: white; }
 
-        /* Classe para esconder elementos no telemóvel */
-        .desktop-only {
-            display: block;
-        }
-
         /* Ajustes exclusivos para Telemóveis */
         @media (max-width: 600px) {
             body {
@@ -222,28 +217,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 background-size: cover;
                 background-position: center center;
             }
-            .desktop-only {
-                display: none; /* Oculta o título Giovanna & Kawe no telemóvel */
+            h1 {
+                font-size: 1.9em; /* Reduz o título para caber perfeitamente em uma linha no celular */
+                margin-top: 0px;
+                margin-bottom: 5px;
             }
             .container {
-                padding: 18px 12px; /* Caixa bem mais compacta */
+                padding: 18px 12px; /* Caixa branca mais compacta */
                 max-width: 90%;
             }
             .info {
-                font-size: 0.95em; /* Textos menores nas informações */
-                margin-bottom: 15px;
-                padding-bottom: 10px;
+                font-size: 0.9em; /* Textos de data, hora e local menores */
+                margin-bottom: 12px;
+                padding-bottom: 8px;
             }
             label {
-                font-size: 1em; /* Texto do campo de nome menor */
-                margin-bottom: 8px;
+                font-size: 0.95em; /* Texto do campo de nome menor */
+                margin-bottom: 6px;
             }
             input[type="text"] {
-                padding: 9px;
+                padding: 8px;
                 margin-bottom: 10px;
+                font-size: 0.95em;
             }
             button {
-                padding: 10px;
+                padding: 9px;
+                font-size: 0.95em;
             }
         }
     </style>
@@ -251,8 +250,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container">
 
-        <!-- Título visível apenas no Computador -->
-        <h1 class="desktop-only">Giovanna & Kawe</h1>
+        <!-- Título mantido no celular, mas redimensionado para uma linha -->
+        <h1>Giovanna & Kawe</h1>
 
         <div class="info">
             <p><strong>Data:</strong> 15 de Maio de 2027</p>
