@@ -131,10 +131,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             width: 100%;
-            max-width: 500px;
+            max-width: 580px;
             box-sizing: border-box;
             backdrop-filter: blur(5px);
-            margin: 10px auto;
+            margin: auto;
         }
 
         h1 {
@@ -144,6 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-weight: normal;
             margin-bottom: 0px;
             margin-top: 5px;
+            white-space: nowrap; /* Impede que o nome quebre de linha no PC */
         }
 
         .info {
@@ -208,22 +209,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .btn-voltar:hover { background-color: #4a5d23; color: white; }
 
-        /* Ajustes específicos e perfeitos para Telemóveis */
+        /* Ajustes exatos para telemóveis */
         @media (max-width: 600px) {
-            body {
-                padding: 10px;
-                justify-content: center;
-                background-position: center center;
+            h1 {
+                font-size: 1.9em; /* Reduz na medida certa para garantir uma linha só no telemóvel */
             }
             .container {
                 padding: 25px 15px;
-                max-width: 100%;
-            }
-            h1 {
-                font-size: 2.8em;
-            }
-            .info {
-                font-size: 1.1em;
+                max-width: 92%;
             }
         }
     </style>
