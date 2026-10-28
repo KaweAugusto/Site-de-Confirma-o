@@ -1,8 +1,9 @@
 import sys
 import os
 
-# Adiciona a pasta atual ao caminho de execução do Python
-sys.path.insert(0, os.path.dirname(__file__))
+# Define o caminho absoluto da pasta do projeto
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, PROJECT_DIR)
 
-# Importa a aplicação Flask do seu arquivo app.py
+# Configura o ambiente para encontrar a aplicação Flask
 from app import app as application
