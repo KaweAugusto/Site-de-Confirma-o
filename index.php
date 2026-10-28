@@ -95,13 +95,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nosso Noivado</title>
     <style>
-        /* Importando a fonte personalizada */
+        /* Importando as fontes */
         @font-face {
             font-family: 'Blosta Script';
             src: url("static/Blosta-Script.otf") format('opentype');
         }
-
-        /* Importando a fonte das Informações */
         @font-face {
             font-family: 'Cormorant SC';
             src: url("static/CormorantSC-Regular.ttf") format('truetype');
@@ -112,58 +110,72 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             background-image: url("static/fundo-flores.png.jpeg");
             background-size: cover;
-            background-position: bottom center;
+            background-position: center bottom;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-color: #636B2F;
             color: #333;
-            padding: 20px;
+            padding: 15px;
             margin: 0;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
         }
+
         .container {
             background: rgba(255, 255, 255, 0.95);
-            padding: 40px 30px;
+            padding: 35px 25px;
             border-radius: 20px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            max-width: 600px;
-            margin: 180px auto;
+            width: 100%;
+            max-width: 500px;
+            box-sizing: border-box;
             backdrop-filter: blur(5px);
+            margin: 10px auto;
         }
+
         h1 {
             font-family: 'Blosta Script', cursive;
             color: #5a4a42;
-            font-size: 4em;
+            font-size: 3.5em;
             font-weight: normal;
             margin-bottom: 0px;
-            margin-top: 10px;
+            margin-top: 5px;
         }
+
         .info {
             font-family: 'Cormorant SC', serif;
-            margin-bottom: 30px;
-            font-size: 1.4em;
+            margin-bottom: 25px;
+            font-size: 1.3em;
             color: #666;
             border-bottom: 1px solid #eee;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
-        .info p { margin: 8px 0; }
+
+        .info p { margin: 6px 0; }
+
         label {
             font-family: 'Cormorant SC', serif;
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: bold;
             color: #5a4a42;
-            font-size: 1.3em;
+            font-size: 1.2em;
         }
+
         input[type="text"] {
-            width: 90%;
+            width: 100%;
             padding: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 6px;
             font-size: 1em;
             box-sizing: border-box;
         }
+
         button {
             background-color: #4a5d23;
             color: white;
@@ -173,29 +185,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 6px;
             cursor: pointer;
             transition: 0.3s;
-            width: 90%;
+            width: 100%;
+            box-sizing: border-box;
         }
+
         button:hover { background-color: #3a481c; }
-        .sucesso {
-            color: #2e7d32;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        .aviso {
-            color: #f39c12;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        .erro {
-            color: #c62828;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
+
+        .sucesso { color: #2e7d32; font-size: 1.1em; font-weight: bold; margin: 15px 0; }
+        .aviso { color: #f39c12; font-size: 1.1em; font-weight: bold; margin: 15px 0; }
+        .erro { color: #c62828; font-weight: bold; margin-bottom: 15px; }
+
         .btn-voltar {
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 15px;
             text-decoration: none;
             color: #4a5d23;
             font-weight: bold;
@@ -204,9 +206,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 6px;
             transition: 0.3s;
         }
-        .btn-voltar:hover {
-            background-color: #4a5d23;
-            color: white;
+        .btn-voltar:hover { background-color: #4a5d23; color: white; }
+
+        /* Ajustes específicos e perfeitos para Telemóveis */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+                justify-content: center;
+                background-position: center center;
+            }
+            .container {
+                padding: 25px 15px;
+                max-width: 100%;
+            }
+            h1 {
+                font-size: 2.8em;
+            }
+            .info {
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
