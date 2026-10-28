@@ -169,7 +169,11 @@ $cidade = "Rio de Janeiro";
         <h1>Lista de Presentes</h1>
 
         <div class="info">
-            <p>A vossa presença é o nosso maior presente! Mas, se quiserem contribuir para o início da nossa nova vida a dois, deixamos aqui a nossa chave Pix:</p>
+            <p>A A sua presença já é o nosso maior presente! ❤️
+
+Mas, se ainda quiser nos presentear, ficaremos muito felizes em receber uma contribuição de qualquer valor, aquele que estiver no seu coração, para nos ajudar a realizar um sonho: viver a experiência da nossa primeira viagem de avião juntos! ✈️💕
+
+Desde já, agradecemos de coração por fazer parte desse momento tão especial e por nos ajudar a transformar esse sonho em realidade!:</p>
         </div>
 
         <!-- QR Code gerado automaticamente pelo link da chave ou API do Pix -->
