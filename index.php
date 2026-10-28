@@ -282,4 +282,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </div>
 </body>
+
+    <div style="margin-top: 40px;">
+    <a href="adm.php" style="color: #fff; text-decoration: none; font-size: 0.9em; opacity: 0.8;">Painel Administrativo</a>
+</div>
 </html>
