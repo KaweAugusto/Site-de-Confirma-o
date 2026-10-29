@@ -41,7 +41,7 @@ function obter_convidados($arquivo) {
             "anabella" => ["nome_original" => "Anabella", "confirmado" => false],
             "giulia" => ["nome_original" => "Giulia", "confirmado" => false],
             "maria clara" => ["nome_original" => "Maria Clara", "confirmado" => false],
-            "matheus" => ["nome_original" => "Matheus", "confirmado" => false],
+            "mateus" => ["nome_original" => "Mateus", "confirmado" => false],
             "ana julia" => ["nome_original" => "Ana Julia", "confirmado" => false],
             "juliana" => ["nome_original" => "Juliana", "confirmado" => false],
             "frederico" => ["nome_original" => "Frederico", "confirmado" => false],
